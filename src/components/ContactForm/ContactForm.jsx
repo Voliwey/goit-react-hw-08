@@ -1,70 +1,89 @@
-import { useId } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import css from '../ContactForm/ContactForm.module.css';
-import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
-import toast from 'react-hot-toast';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useId } from "react";
+import * as Yup from "yup";
+import toast from "react-hot-toast";
 
-const ContactSchema = Yup.object().shape({
-  name: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  number: Yup.string()
-    .min(3, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-});
+import { addContact } from "../../redux/contacts/operations";
+import { useDispatch } from "react-redux";
+import css from "./ContactForm.module.css";
+
+  export const validationControl = Yup.object().shape({
+    name: Yup.string()
+      .min(3, "Too Short!")
+      .max(50, "Too Long!")
+      .required("Required"),
+    number: Yup.string()
+      .min(3, "Too short")
+      .max(12, "Too long")
+      .required("Required"),
+  });
 
 export default function ContactForm() {
   const dispatch = useDispatch();
-  const fieldId = useId();
+  const nameFieldId = useId();
+  const numberFieldId = useId();
+
+        
+  const initialContact = {
+    name: "",
+    number: "",
+  };
 
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values))
       .unwrap()
       .then(() => {
-        toast.success('Successfully added!');
+           toast("The contact has been added", {
+             style: { background: "#a477e0" },
+             position: "top-center",
+           });
       })
       .catch(() => {
-        toast.error("This didn't work.");
+        toast("Was error, please try again", {
+          style: { background: "#fb30c8" },
+          containerStyle: {
+            top: 150,
+            left: 20,
+            bottom: 20,
+            right: 20,
+          },
+        });
       });
+    
 
     actions.resetForm();
   };
 
   return (
     <Formik
-      initialValues={{
-        name: '',
-        number: '',
-      }}
+      initialValues={initialContact}
       onSubmit={handleSubmit}
-      validationSchema={ContactSchema}
+      validationSchema={validationControl}
     >
-      <Form className={css.form}>
-        <div className={css.formContainer}>
-          <label htmlFor={`${fieldId}-name`}>Name</label>
+      <Form className={css.formStyle}>
+        <div className={css.fialdStyle}>
+          <label htmlFor={nameFieldId}>Name</label>
           <Field
-            className={css.form_field}
+            className={css.field}
+            id={nameFieldId}
             type="text"
             name="name"
-            id={`${fieldId}-name`}
           />
-          <ErrorMessage name="name" component="span" />
+          <ErrorMessage className={css.err} name="name" component="span" />
         </div>
-        <div className={css.formContainer}>
-          <label htmlFor={`${fieldId}-number`}>Number</label>
+
+        <div className={css.fialdStyle}>
+          <label htmlFor={numberFieldId}>Number</label>
           <Field
-            className={css.form_field}
+            className={css.field}
+            id={numberFieldId}
             type="tel"
             name="number"
-            id={`${fieldId}-number`}
           />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage className={css.err} name="number" component="span" />
         </div>
-        <button className={css.addCntBtn} type="submit">
+
+        <button type="submit" className={css.btn}>
           Add contact
         </button>
       </Form>

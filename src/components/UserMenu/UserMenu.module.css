@@ -7,3 +7,11 @@
 .username {
   font-weight: 700;
 }
+.btn{
+  margin-right: 10px;
+  background-color: white;
+}
+.btn:hover, .btn:focus, .btn:active{
+   background-color:  blue;
+   color: white;
+}

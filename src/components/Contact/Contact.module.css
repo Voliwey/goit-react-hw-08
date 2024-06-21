@@ -1,62 +1,63 @@
-.container {
-  border: 1px solid black;
-  border-radius: 4px;
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 12px;
-  min-width: 250px;
-  color: black;
+.formStyle{
+display: flex;
+padding: 10px;
+margin-bottom: 10px;  
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 5px;
+width: 300px;
+background-color: white;
+border: 1px solid  black;
+flex-direction: column;
+}
+
+.fialdStyle{
+display: block;
+padding: 10px;
+
+}
+
+.field{
+    display: block;
+    padding: 10px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.btn{
+    display: block;
+    padding: 10px;
+    background-color:  white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.btn:hover, .btn:focus, .btn:active{
+   background-color:  blue;
+   color: white;
+}
+.err{
+  background-color:  white;
   
 }
-
-.info_container,
-.button_container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.btnBlock{
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
 }
 
-.contact_line {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  align-items: center;
+.btnDel{
+       display: block;
+    padding: 10px;
+    background-color:  white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    color: black;
 }
-
-.deleteCntBtn,
-.editButton {
-  cursor: pointer;
-  color: red;
-  text-align: center;
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  max-width: 150px;
-  display: inline-block;
-  border: 1px solid gray;
-  border-radius: 4px;
-  transition-property: border-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.btnDel:hover, .btnDel:focus, .btnDel:active{
+    background-color:  red;
+   color: white;
 }
-
-.deleteCntBtn:hover,
-.deleteCntBtn:focus {
-  border-color: black;
-  outline: none;
-}
-
-.editButton {
-  color: blue;
-}
-
-/* 
-.deleteButton {
-  top: 0;
-  color: 
-} */

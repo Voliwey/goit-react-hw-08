@@ -1,12 +1,51 @@
 .form {
-  width: 320px;
-  margin-left: auto;
-  margin-right: auto;
-  color: black;
+width: 320px;
+background-color: white;
+border: 1px solid  black;
+border-radius: 5px;
+padding: 20px;
+margin: 30px auto;
+font-size: large;
+font-weight: 500;
+
+  
 }
 
 .label {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  /* align-items: center; */
   margin-bottom: 16px;
+}
+.btn{
+ display: block;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 0 auto;
+    color: black;
+    
+}
+.btn:hover, .btn:focus, .btn:active{
+   background-color:  blue;
+   color: white;
+}
+.err{
+  background-color:  white;
+}
+
+.fialdStyle{
+display: block;
+
+
+}
+
+.field{
+    display: block;
+    padding: 10px;
+    width: 280px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
 }

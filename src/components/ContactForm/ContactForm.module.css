@@ -1,46 +1,42 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 400px;
-  padding: 8px;
-  border: 1px solid black;
-  margin-bottom: 16px;
-  color: black
+.formStyle{
+display: block;
+padding: 10px;
+margin-bottom: 10px;  
+margin-left: auto;  
+margin-right: auto;
+border-radius: 5px;
+width: 300px;
+background-color: white;
+border: 1px solid  black;
 }
 
-.formContainer {
-  display: flex;
-  flex-direction: column;
+.fialdStyle{
+display: block;
+padding: 10px;
+
+
 }
 
-.form_field {
-  height: 20px;
-  background-color: white;
-  border-color: black;
-}
-.addCntBtn {
-  cursor: pointer;
-  color: black;
-  text-align: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.04em;
-  max-width: 150px;
-  display: inline-block;
-  border: 1px solid black;
-  border-radius: 4px;
-  margin: 15px auto;
-  transition-property: border-color;
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  color: white;
+.field{
+display: block;
+padding: 10px;
+width: 250px;
+border: 1px solid black;
+border-radius: 5px;
+background-color: white;
 }
 
-.addCntBtn:hover,
-.addCntBtn:focus {
-  border-color: black;
-  outline: none;
+.btn{
+display: block;
+padding: 10px;
+background-color:  white;
+border: 1px solid black;
+border-radius: 5px;
+margin: 0 auto;
 }
+
+.btn:hover, .btn:focus, .btn:active{
+   background-color: blue;
+   color: white;
+}
+

@@ -1,11 +1,5 @@
-import css from './ErrorMessage.module.css';
-
-export default function ErrorMessage() {
-  return (
-    <div>
-      <p className={css.network_mistake}>
-        There is an error! Please try again!
-      </p>
-    </div>
-  );
+export default function ErrorMessage (){
+    return(
+        <p>Whoops, something went wrong! Please try reloading this page!</p>
+    )
 }

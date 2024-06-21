@@ -1,20 +1,19 @@
-import { RotatingLines } from 'react-loader-spinner';
-import css from './Loader.module.css';
+import { Hourglass } from "react-loader-spinner";
+import css from './Loader.module.css'
+export default function Loader(){
 
-export default function Loader() {
-  return (
-    <div className={css.loader_wrapper}>
-      <RotatingLines
-        visible={true}
-        height="96"
-        width="96"
-        color="grey"
-        strokeWidth="5"
-        animationDuration="1"
-        ariaLabel="rotating-lines-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-      />
-    </div>
-  );
+    return (
+      <div>
+        <Hourglass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="hourglass-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          colors={["#a477e0", "#e4e4e4;"]}
+        />
+        <p>Loading data, please wait...</p>
+      </div>
+    );
 }

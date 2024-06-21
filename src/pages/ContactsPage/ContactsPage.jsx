@@ -1,39 +1,36 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import ContactList from '../../components/ContactList/ContactList';
-import SearchBox from '../../components/SearchBox/SearchBox';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import { fetchContacts } from '../../redux/contacts/operations';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import PageTitle from '../../components/PageTitle/PageTitle';
-import ConfirmModal from '../../components/ModalWindow/ConfirmModal';
-import { Toaster } from 'react-hot-toast';
+import ContactForm from "../../components/ContactForm/ContactForm";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import ContactList from "../../components/ContactList/ContactList";
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectError, selectLoading } from "../../redux/contacts/selectors";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import Loader from "../../components/Loader/Loader";
+import css from './ContactPage.module.css'
+import PageTitle from "../../components/PageTitle/PageTitle";
+import ModalWindow from "../../components/ModalWindow/ModalWindow";
 
 export default function ContactPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(state => state.contacts.loading);
-  //   const isError = useSelector(state => state.contacts.error);
+  const isLoading = useSelector(selectLoading);
+  const isError = useSelector(selectError);
 
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
-
   return (
-    <div>
-      <PageTitle>Your contacts</PageTitle>
-      <Toaster position="top-center" reverseOrder={false} />
-      <ContactForm />
-      <SearchBox />
-      {isLoading && <Loader />}
-      {/* {isError && <ErrorMessage />} */}
-      <ContactList />
-      <ConfirmModal />
+    <>
+      <div>
+        <PageTitle>Phonebook </PageTitle>
+        <ContactForm />
+        <SearchBox />
+        {isLoading && <Loader>Loading message</Loader>}
+        <ContactList />
 
-      {/* <TaskEditor />
-
-      <TaskList /> */}
-    </div>
+        {isError && <ErrorMessage />}
+        <ModalWindow />
+      </div>
+    </>
   );
 }
-// className={css.container}
